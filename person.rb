@@ -7,20 +7,15 @@ class Person
     @name = name
     @age = age
     @parent_permission = parent_permission
- end
+  end
 
-def can_use_services?
+  def can_use_services?
     is_of_age? || @parent_permission ? true : false
- end
- def is_of_age?
+  end
+
+  def is_of_age?
     @age >= 18
+  end
+
+  private :is_of_age?
 end
-
-private :is_of_age?
-end
-
-
-
-
-
-
