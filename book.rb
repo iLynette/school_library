@@ -6,4 +6,8 @@ class Book
         @author = author
         @rentals = []
     end
+
+    def add_rentals(date, person)
+        @rentals.push(Rental.new(date, self, person)) unless @rentals.include?(Rental.new(date, self, person))
+    end
 end
