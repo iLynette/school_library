@@ -32,5 +32,13 @@ class App
                     puts "#{index + 1})[#{person.class.name}] Name: #{person.name}, Age: #{person.age} | ID: #{person.id}"
                 end
             end
-
+        
+        # create a person
+        def create_person
+            print 'Would you like to create a student (1) or a teacher (2)? Select a number:'
+            selection = gets.chomp
+            print 'Name:'
+            name = gets.chomp
+            print 'Age:'
+            age = gets.chomp
 end
