@@ -22,4 +22,15 @@ class App
                 puts "#{index + 1}) Title: \"#{book.title}\" | Author: #{book.author}"
             end
         end
+
+        # list all people
+        def list_people
+            if @people.empty?
+                puts 'No people added yet, please add a person'
+            else
+                @people.each_with_index do | person, index|
+                    puts "#{index + 1})[#{person.class.name}] Name: #{person.name}, Age: #{person.age} | ID: #{person.id}"
+                end
+            end
+
 end
