@@ -19,7 +19,8 @@ class App
 
   # list all books
   def list_books
-      puts "Sorry, there are #{@books.count} book(s) available"
+      puts 'Sorry, there are no books available'
+      puts "There are #{@books.count} book(s) available"
       @books.each_with_index do |book, index|
         puts "#{index + 1}) Title: \"#{book.title}\" | Author: #{book.author}"
       end
@@ -120,8 +121,7 @@ class App
 
       print 'Enter the date[yyyy-mm-dd]: '
       date = gets.chomp.to_s
-
-      rent = Rental.new(date, @books[index], individual)
+      rent = Rental.new(date, @book[index], individual)
       @rentals << rent
 
       puts 'Book rented successfully'
