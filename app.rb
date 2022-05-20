@@ -71,4 +71,11 @@ class App
                 puts ''
                 puts "Student is created successfully"
             end
+
+            def create_teacher(specialization, name, age)
+                teacher = Teacher.new(specialization, name, age)
+                @people << teacher
+                    puts ''
+                    puts "Teacher created successfully."
+            end
 end
