@@ -40,5 +40,19 @@ class App
             print 'Name:'
             name = gets.chomp
             print 'Age:'
-            age = gets.chomp
+            age = gets.chomp.to_i
+            case selection
+            when '1'
+                print 'Specialization:'
+                person = gets.chomp
+                create_teacher(person, name, age)
+            when '2'
+                print 'Class:'
+                grade = gets.chomp
+                create_teacher(grade, name, age)
+            else
+                puts ''
+                puts 'Invalid, please try again'
+            end
+        end
 end
