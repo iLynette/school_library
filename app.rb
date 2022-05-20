@@ -55,4 +55,20 @@ class App
                 puts 'Invalid, please try again'
             end
         end
+
+        def create_student(grade, name, age)
+            print 'Parent permission? [Y/N]'
+            option = gets.chomp.downcase
+            case option
+                when 'y'
+                    student = Student.new(grade, name, age, parent_permission: true)
+                when 'n'
+                    student = Student.new(grade, name, age, parent_permission: false)
+                else
+                    puts 'Invalid option, please try again'
+                end
+                @people << student
+                puts ''
+                puts "Student is created successfully"
+            end
 end
