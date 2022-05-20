@@ -94,5 +94,15 @@ class App
                 puts ''
                 puts 'Enter book title and author'
               end
-            end                    
+            end 
+            
+            # create rental
+            def create_rental
+              if @books.empty? && @people.empty?
+                puts 'Nothing to see here'
+              else
+                puts 'Press the number of the book you want: '
+                @books.each_with_index do |book, index|
+                  puts "#{index + 1}) Title: \"#{book.title}\" | Author: #{book.author}"
+                end
 end
