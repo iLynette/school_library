@@ -142,4 +142,16 @@ class App
                 end
               end
             end
+
+            def list_selections
+              puts "Please choose an option by selecting a number:
+                        1. List all books
+                        2. List all people
+                        3. Create person account
+                        4. Create a book
+                        5. Create a rental
+                        6. List all rentals for a given person ID
+                        7. Exit"
+              gets.chomp
+            end            
 end
