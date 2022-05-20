@@ -19,20 +19,20 @@ class App
 
   # list all books
   def list_books
-      puts 'Sorry, there are no books available'
-      puts "There are #{@books.count} book(s) available"
-      @books.each_with_index do |book, index|
-        puts "#{index + 1}) Title: \"#{book.title}\" | Author: #{book.author}"
-      end
+    puts 'Sorry, there are no books available'
+    puts "There are #{@books.count} book(s) available"
+    @books.each_with_index do |book, index|
+      puts "#{index + 1}) Title: \"#{book.title}\" | Author: #{book.author}"
     end
+  end
 
-    # list all people
-    def list_people
-      puts 'No people added yet, please add a person' if @people.empty?
-      @people.each_with_index do |person, index|
-        puts "#{index + 1})[#{person.class}] Name: #{person.name} | Age: #{person.age} | ID: #{person.id}"
-      end
+  # list all people
+  def list_people
+    puts 'No people added yet, please add a person' if @people.empty?
+    @people.each_with_index do |person, index|
+      puts "#{index + 1})[#{person.class}] Name: #{person.name} | Age: #{person.age} | ID: #{person.id}"
     end
+  end
 
   # create a person
   def create_person
@@ -112,9 +112,7 @@ class App
       index = number - 1
 
       puts 'Type your ID: '
-      @people.each { |person|
-        puts "[#{person.class}] Name: #{person.name} | Age: #{person.age} | ID: #{person.id}"
-      }
+      @people.each { |person| puts "[#{person.class}] Name: #{person.name} | Age: #{person.age} | ID: #{person.id}" }
       identity = gets.chomp.to_i
 
       individual = @people.select { |person| person.id == identity }.first
@@ -129,24 +127,25 @@ class App
   end
 
   def list_all_rentals
-      puts 'No rentals available at the moment' if @rentals.empty?
-      print 'To view your rentals, type your ID: '
-      id = gets.chomp.to_i
-      rental = @rentals.select { |rend| rend.person.id == id }
-      if rental.empty?
-        puts 'No records for that ID'
-      else
-        puts 'Here are your records: '
-        puts ''
-        rental.each_with_index do |record, index|
-          puts "#{index + 1}| Date: #{record.date} | Borrower: #{record.person.name}
+    puts 'No rentals available at the moment' if @rentals.empty?
+    print 'To view your rentals, type your ID: '
+    id = gets.chomp.to_i
+    rental = @rentals.select { |rend| rend.person.id == id }
+    if rental.empty?
+      puts 'No records for that ID'
+    else
+      puts 'Here are your records: '
+      puts ''
+      rental.each_with_index do |record, index|
+        puts "#{index + 1}| Date: #{record.date} | Borrower: #{record.person.name}
                  | Status: #{record.person.class} | Borrowed book: \"#{record.book.title}\" by #{record.book.author}"
-        end
       end
     end
-    def list_selections
-      puts ''
-      puts "Please choose an option by selecting a number:
+  end
+
+  def list_selections
+    puts ''
+    puts "Please choose an option by selecting a number:
                 1. List all books
                 2. List all people
                 3. Create person account
@@ -154,6 +153,6 @@ class App
                 5. Create a rental
                 6. List all rentals for a given person ID
                 7. Exit"
-      gets.chomp
-    end
+    gets.chomp
+  end
 end
