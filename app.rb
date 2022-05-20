@@ -12,4 +12,14 @@ class App
         @people = []
         @rentals = []
     end
+
+    # list all books
+    def list_books
+        if @books.empty?
+            puts 'Sorry, no books available, please add a book'
+        else
+            @books.each_with_index do | book, index|
+                puts "#{index + 1}) Title: \"#{book.title}\" | Author: #{book.author}"
+            end
+        end
 end
