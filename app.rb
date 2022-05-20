@@ -105,4 +105,24 @@ class App
                 @books.each_with_index do |book, index|
                   puts "#{index + 1}) Title: \"#{book.title}\" | Author: #{book.author}"
                 end
+                number = gets.chomp.to_i
+                index = number - 1
+
+                puts 'Type your ID: '
+                @people.each { |person|
+                  puts "[#{person.class}] Name: #{person.name} | Age: #{person.age} | ID: #{person.id}"
+                }
+                identity = gets.chomp.to_i
+
+                individual = @people.select { |person| person.id == identity }.first
+
+                print 'Enter the date[yyyy-mm-dd]: '
+                date = gets.chomp.to_s
+
+                rent = Rental.new(date, @books[index], individual)
+                @rentals << rent
+
+                puts 'Book rented successfully'
+              end
+            end
 end
