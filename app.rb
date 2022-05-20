@@ -85,9 +85,14 @@ class App
                 title = gets.chomp
                 print 'Author:'
                 author = gets.chomp
+                if title.strip != '' && author.strip != ''
                 book = Book.new(title, author)
                 @books << book
                 puts ''
                 puts 'Book created successfully'
+              else
+                puts ''
+                puts 'Enter book title and author'
+              end
             end                    
 end
